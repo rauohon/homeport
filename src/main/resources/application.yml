@@ -1,0 +1,33 @@
+spring:
+  profiles:
+    active: dev
+    include:
+      - database
+
+---
+spring:
+  profiles: prod
+  devtools:
+    livereload:
+      enabled: true
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+---
+spring:
+  profiles: dev
+  devtools:
+    livereload:
+      enabled: true
+server:
+  port: 8881
+  servlet:
+    context-path: /
+logging:
+  level:
+    org.springframework.web: DEBUG
+    com.zoo.homport.controller.HomeController: DEBUG
+    org.hibernate: DEBUG
+
