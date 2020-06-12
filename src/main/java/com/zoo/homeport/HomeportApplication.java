@@ -1,5 +1,11 @@
 package com.zoo.homeport;
 
+import com.zoo.homeport.test.Item;
+import com.zoo.homeport.test.ItemRepository;
+import com.zoo.homeport.test.Shop;
+import com.zoo.homeport.test.ShopRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,8 +16,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Github: https://github.com/rauohon
  * 설명:
  */
+@RequiredArgsConstructor
 @SpringBootApplication
-public class HomeportApplication {
+public class HomeportApplication implements CommandLineRunner {
+
+    private final ShopRepository shopRepository;
+    private final ItemRepository itemRepository;
+
+    @Override
+    public void run(String... args) throws Exception {
+        shopRepository.save(new Shop("jojoldu", "jojoldu.tistory.com"));
+        itemRepository.save(new Item("jojoldu's Github", 1000));
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(HomeportApplication.class, args);

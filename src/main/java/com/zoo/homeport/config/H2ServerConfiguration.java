@@ -17,12 +17,17 @@
  ***************************************************************************************************/
 package com.zoo.homeport.config;
 
+import com.zaxxer.hikari.HikariDataSource;
+import lombok.extern.slf4j.Slf4j;
 import org.h2.tools.Server;
+import org.hibernate.annotations.Filter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import javax.sql.DataSource;
 import java.sql.SQLException;
 
 /**
@@ -37,14 +42,14 @@ import java.sql.SQLException;
 public class H2ServerConfiguration {
 
     @Bean
-    @ConfigurationProperties("spring.datasource.hikari") // yml의 설정값을 Set한다.
-    public Server dataSource() throws SQLException {
-        Server h2Server = Server.createTcpServer().start();
-        if (h2Server.isRunning(true)) {
-            System.out.println("H2 server was started and is running.");
-            return h2Server;
-        } else {
-            throw new RuntimeException("Could not start H2 server.");
-        }
+    @ConfigurationProperties("spring.datasource.hikari")
+    public DataSource dataSource() throws SQLException {
+        Server.createTcpServer("-tcp",
+                "-tcpAllowOthers",
+                "-tcpPort",
+                "9094",
+                "-ifNotExists").start();
+
+        return new com.zaxxer.hikari.HikariDataSource();
     }
 }

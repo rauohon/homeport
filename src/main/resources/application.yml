@@ -27,7 +27,5 @@ server:
     context-path: /
 logging:
   level:
-    org.springframework.web: DEBUG
-    com.zoo.homport.controller.HomeController: DEBUG
-    org.hibernate: DEBUG
+    root: debug
 
