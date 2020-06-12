@@ -1,9 +1,5 @@
 package com.zoo.homeport;
 
-import com.zoo.homeport.test.Item;
-import com.zoo.homeport.test.ItemRepository;
-import com.zoo.homeport.test.Shop;
-import com.zoo.homeport.test.ShopRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

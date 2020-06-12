@@ -1,4 +1,4 @@
-package com.zoo.homeport.test;
+package com.zoo.homeport;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package com.zoo.homeport.test;
+package com.zoo.homeport;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
