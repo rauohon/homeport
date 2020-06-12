@@ -15,7 +15,7 @@
  *           --------------------------------------------------------------------------------
  *
  ***************************************************************************************************/
-package com.zoo.homeport.controller;
+package com.zoo.homeport.homeController;
 
 import com.zoo.homeport.common.type.ResponseType;
 import com.zoo.homeport.responseModel.ApiResponseModel;

@@ -4,7 +4,7 @@ HELP.md
 **/src/test/**
 
 ### 설정파일
-database.yml
+application-database.yml
 
 ### STS ###
 .apt_generated
